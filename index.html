@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="lumen.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <!--add bootstrap-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid" bis_skin_checked="1">
+          <a class="navbar-brand" href="#">Peer-to-Peer Messaging</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+      
+          <div class="collapse navbar-collapse" id="navbarColor03" bis_skin_checked="1">
+            <ul class="navbar-nav me-auto">
+              <li class="nav-item">
+                <a class="nav-link active" href="index.html">Home
+                  <span class="visually-hidden">(current)</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="room.html">Create new room</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">About</a>
+              </li>
+            </ul>
+            <div class="d-flex">
+              <input class="form-control me-sm-2" type="text" placeholder="Room Code" id="join">
+              <button class="btn btn-secondary my-2 my-sm-0" onclick="joinroom()">Enter</button>
+            </div>
+          </div>
+        </div>
+    </nav>
+    <!--container-->
+    <div class="card_margin">
+        <div class="card bg-secondary mb-3" bis_skin_checked="1" id="card1">
+            <div class="card-header" bis_skin_checked="1">P2P Messaging</div>
+            <div class="card-body" bis_skin_checked="1">
+              <h4 class="card-title">Encrypted and Free messaging</h4>
+              <p class="card-text">This is a free, encrypted, and anonymous messaging service.</p>
+              <p class="card-text">With client-sided encryption.</p>
+              <p class="card-text"></p>
+              <!--create normal bootstrap button-->
+                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal" onclick="newroom()">
+                    Create new room
+                </button>
+                <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#exampleModal">
+                    source code
+                </button>
+            </div>
+          </div>
+    </div>
+    <!--create bottom page-->
+    <footer class="footer w-100">
+            <div class="container-fluid">
+            <span class="text-muted">&copy; Cornelius Christian - 2022</span>
+            </div>
+        </footer>
+</body>
+</html>

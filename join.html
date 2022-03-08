@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="lumen.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="chat.js"></script>
+    <!--add bootstrap-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid" bis_skin_checked="1">
+          <a class="navbar-brand" href="index.html">Peer-to-Peer Messaging</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+      
+          <div class="collapse navbar-collapse" id="navbarColor03" bis_skin_checked="1">
+            <ul class="navbar-nav me-auto">
+              <li class="nav-item">
+                <a class="nav-link active" href="index.html">Home
+                  <span class="visually-hidden">(current)</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="room.html">Create new room</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">About</a>
+              </li>
+            </ul>
+            <form class="d-flex">
+              <input class="form-control me-sm-2" type="text" placeholder="Room Code">
+              <button class="btn btn-secondary my-2 my-sm-0" onclick="joinroom()">Enter</button>
+            </form>
+          </div>
+        </div>
+    </nav>
+    
+    <h2 id="messages"></h2>
+
+    <!--create new bootstrap input-->
+    <div class="urmom">
+        <div class="container-fluid">
+                <label for="exampleInputEmail1" class="form-label">Message : </label>
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Send messages">
+                <small id="emailHelp" class="form-text text-muted">This room is encrypted</small>
+                <br>
+                <br>
+             <button type="button" class="btn btn-primary" id="send" onclick="sending()">Send</button>
+        </div>
+    </div>
+    <!--create bottom page-->
+    <footer class="footer w-100">
+        <div class="container-fluid">
+            <span class="text-muted">&copy; Cornelius Christian - 2022</span>
+        </div>
+    </footer>
+    <script type="module">
+        var firebaseConfig = {
+            apiKey: "AIzaSyBxfe6VA2Jy1MLEhmTS4bFmpxaxYHl8FE8",
+            authDomain: "p2pchat-62529.firebaseapp.com",
+            projectId: "p2pchat-62529",
+            storageBucket: "p2pchat-62529.appspot.com",
+            messagingSenderId: "868778436602",
+            appId: "1:868778436602:web:3cfa8c620ab5956a05e643",
+            measurementId: "G-M5TY1Y8MKV"
+        };
+        firebase.initializeApp(firebaseConfig);
+        var database = firebase.database();
+        function getQuery(name){
+            const queryString = window.location.search;
+            const urlParams = new URLSearchParams(queryString);
+            const product = urlParams.get(name);
+            return product;
+        }
+        firebase.database().ref("room/"+getQuery("room")+"/chat").on("value", function(snapshot){
+            document.getElementById('messages').innerHTML = "";
+            var html = snapshot.val(); 
+            document.getElementById("messages").innerHTML += html;
+        });
+    </script>
+</body>
+</html>
