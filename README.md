@@ -1,4 +1,5 @@
-
+# WARNING!
+This project isn't done yet!
 # P2P Messaging
 
 Most simple and secure messaging. Ever.
