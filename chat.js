@@ -1,3 +1,6 @@
+setTimeout(function(){
+    document.querySelector("body > nav > div > a").innerHTML = localStorage.getItem('room') + "'s Room";
+},1)
 function join(code){
     open("join.html?room="+code, "_self")
 }
@@ -18,7 +21,10 @@ function send(roomCode, msg) {
 }
 function sending(){
     var msg = document.getElementById('exampleInputEmail1').value;
+    var msgsafe = msg.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+    var encrypted = CryptoJS.AES.encrypt(msgsafe, document.getElementById('pwpw').value.toString());
+    var encrypt = encrypted.toString();
     var roomCode = getQuery('room');
-    send(roomCode, msg);
+    send(roomCode, encrypt);
     document.getElementById('exampleInputEmail1').value = "";
 }
