@@ -38,3 +38,7 @@ cd p2pchat
 
 - [@corneliusc7](https://www.github.com/corneliusc7)
 
+## Change Log
+
+- 3/9/2022 - XSS Prevention and Small fix
+
