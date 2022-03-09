@@ -13,6 +13,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -33,13 +34,13 @@
                 <a class="nav-link" href="room.html">Create new room</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">About</a>
+                <a class="nav-link" href="https://github.com/CorneliusC7/p2pchat#p2p-messaging">About</a>
               </li>
             </ul>
-            <form class="d-flex">
-              <input class="form-control me-sm-2" type="text" placeholder="Room Code">
+            <div class="d-flex">
+            <input class="form-control me-sm-2" type="text" id="join" placeholder="Room Code" >
               <button class="btn btn-secondary my-2 my-sm-0" onclick="joinroom()">Enter</button>
-            </form>
+            </div>
           </div>
         </div>
     </nav>
@@ -51,6 +52,8 @@
         <div class="container-fluid">
                 <label for="exampleInputEmail1" class="form-label">Message : </label>
                 <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Send messages">
+                <label for="exampleInputEmail1" class="form-label">Password : </label>
+                <input type="email" class="form-control" id="pwpw" aria-describedby="emailHelp" placeholder="Password : ">
                 <small id="emailHelp" class="form-text text-muted">This room is encrypted</small>
                 <br>
                 <br>
@@ -83,8 +86,14 @@
         }
         firebase.database().ref("room/"+getQuery("room")+"/chat").on("value", function(snapshot){
             document.getElementById('messages').innerHTML = "";
-            var html = snapshot.val(); 
-            document.getElementById("messages").innerHTML += html;
+            var html = snapshot.val().toString(); 
+            var decrypted = CryptoJS.AES.decrypt(html, document.getElementById('pwpw').value.toString());
+            var decrypt = decrypted.toString(CryptoJS.enc.Utf8);
+            if(decrypt != null){
+                document.getElementById('messages').innerHTML += decrypt;
+            }else{
+                document.getElementById('messages').innerHTML += "- PASSWORD INCORRECT -";
+            }
         });
     </script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
