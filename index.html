@@ -29,11 +29,11 @@
                 <a class="nav-link" href="room.html">Create new room</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">About</a>
+                <a class="nav-link" href="https://github.com/CorneliusC7/p2pchat#p2p-messaging">About</a>
               </li>
             </ul>
             <div class="d-flex">
-              <input class="form-control me-sm-2" type="text" placeholder="Room Code" id="join">
+              <input class="form-control me-sm-2" type="text" placeholder="Room Code" id="join" pattern="[0-9]{6}" maxlength="6">
               <button class="btn btn-secondary my-2 my-sm-0" onclick="joinroom()">Enter</button>
             </div>
           </div>
@@ -52,7 +52,7 @@
                 <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal" onclick="newroom()">
                     Create new room
                 </button>
-                <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#exampleModal">
+                <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#exampleModal" onclick="source()">
                     source code
                 </button>
             </div>
