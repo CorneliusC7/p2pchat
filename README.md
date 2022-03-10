@@ -4,7 +4,7 @@ This project isn't done yet!
 
 Most simple and secure messaging. Ever.
 
-P2P Messaging : [p2pchat](https://www.github.com/corneliusc7)
+P2P Messaging : [p2pchat](https://corneliusc7.github.io/p2pchat)
 
 - [Source Code](https://github.com/CorneliusC7/p2pchat)
 - [Donate Please ;)](https://www.buymeacoffee.com/p2pchat)
