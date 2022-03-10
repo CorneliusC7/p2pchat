@@ -40,5 +40,6 @@ cd p2pchat
 
 ## Change Log
 
-- 3/9/2022 - XSS Prevention and Small fix
+- 3/9/2022 XSS Prevention and Small fix
+- 3/9/2022 (Night Build) End-to-End Client-sided encryption
 
