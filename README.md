@@ -1,5 +1,5 @@
 # WARNING!
-This project isn't done yet!
+This project maybe have some bug, if you found it please report it on issues tab.
 # P2P Messaging
 
 Most simple and secure messaging. Ever.
