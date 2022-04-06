@@ -42,4 +42,5 @@ cd p2pchat
 
 - 3/9/2022 XSS Prevention and Small fix
 - 3/9/2022 (Night Build) End-to-End Client-sided encryption
+- 4/6/2022 Updated Theme to Lux
 
